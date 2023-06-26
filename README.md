@@ -1,4 +1,4 @@
-# Task-Scheduler & AWS Alarm
+![image](https://github.com/Nikhil-Singh25/ec2alarm-taskschdlr/assets/92309384/957dd8bb-28e3-4982-986c-6171cbd92d84)# Task-Scheduler & AWS Alarm
 
 Foobar is a Python library for dealing with word pluralization.
 
@@ -28,29 +28,33 @@ foreach ($user in $users) {
 * **NOTE:** Running the script and registering the task with the Register-ScheduledTask cmdlet requires administrative privileges to manage scheduled tasks on the system.
 
 ## Creating task  
-* Give the path to your PowerShell script in``` $scriptpath```:
-
+* Give the path to your PowerShell script in```$scriptpath```:
 ```powershell
 $scriptPath = "C:\Users\NikhilS\Desktop\DeleteTemporary.ps1"
-
 ```
+*	Create new scheduled task action; ```$action``` variable represents an action that will execute PowerShell.exe with the necessary parameters to bypass the execution policy and run the specified PowerShell script:
 ```powershell
 $action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-ExecutionPolicy Bypass -File `"$scriptPath`""
 ```
+* Create a trigger for task :
 ```powershell
 $trigger = New-ScheduledTaskTrigger -Daily -AtStartup
 ```
+-- Use ``` AtStartup``` to execute task at startup  
+-- Use ```-Daily -At "09:00 AM"``` to execute task at specidied time. 
+
+* Create a new scheduled task settings set which can be customized and passed to ```-Settings``` to configure additional  settings for the task: 
 ```powershell
 $settings = New-ScheduledTaskSettingsSet
 ```
+*Create a new Scheduled Task ,By providing these parameters; the New-ScheduledTask cmdlet creates a new scheduled task object (```$task```) with the specified action, trigger, and settings. This object represents the scheduled task that will be registered with the Task Scheduler:
 ```powershell
 $task = New-ScheduledTask -Action $action -Trigger $trigger -Settings $settings
 ```
+* Register the task with Task Scheduler:
+
 ```powershell
  Register-ScheduledTask -TaskName "TempDeleter" -TaskPath "\" -InputObject $Task -User "SYSTEM"
-
-```
-```powershell
 
 ```
 
