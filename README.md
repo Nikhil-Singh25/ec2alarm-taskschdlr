@@ -1,6 +1,6 @@
 # Task-Scheduler & AWS Alarm
-
-Foobar is a Python library for dealing with word pluralization.
+**[1]** Notification for Disk Usage of EC2 instance
+**[2]** Clearing temporary files for all users
 
 ## Deleting Temporary files:
 
