@@ -1,8 +1,10 @@
 # Task-Scheduler & AWS Alarm
-**[1]** Notification for Disk Usage of EC2 instance
-**[2]** Clearing temporary files for all users
+**[1]** Clearing temporary files for all users.  
 
-## Deleting Temporary files:
+**[2]** Notification for Disk Usage of EC2 instance.  
+
+
+## Clearing temporary files for all users:
 
 ```powershell
 $profilesPath = "C:\Users"
@@ -47,7 +49,7 @@ $trigger = New-ScheduledTaskTrigger -Daily -AtStartup
 ```powershell
 $settings = New-ScheduledTaskSettingsSet
 ```
-*Create a new Scheduled Task ,By providing these parameters; the New-ScheduledTask cmdlet creates a new scheduled task object (```$task```) with the specified action, trigger, and settings. This object represents the scheduled task that will be registered with the Task Scheduler:
+* Create a new Scheduled Task ,By providing these parameters; the New-ScheduledTask cmdlet creates a new scheduled task object (```$task```) with the specified action, trigger, and settings. This object represents the scheduled task that will be registered with the Task Scheduler:
 ```powershell
 $task = New-ScheduledTask -Action $action -Trigger $trigger -Settings $settings
 ```
