@@ -1,4 +1,4 @@
-![image](https://github.com/Nikhil-Singh25/ec2alarm-taskschdlr/assets/92309384/957dd8bb-28e3-4982-986c-6171cbd92d84)# Task-Scheduler & AWS Alarm
+# Task-Scheduler & AWS Alarm
 
 Foobar is a Python library for dealing with word pluralization.
 
